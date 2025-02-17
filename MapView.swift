@@ -512,17 +512,17 @@ struct MapView: View {
     }
 }
 
-struct CircleProgressView: View {
-    var progress: Double
+// struct CircleProgressView: View {
+//     var progress: Double
     
-    var body: some View {
-        Circle()
-            .trim(from: 0, to: CGFloat(progress))
-            .stroke(new_yellow, style: StrokeStyle(lineWidth: 5, lineCap: .round))
-            .rotationEffect(.degrees(-90))
-            .frame(width: 130, height: 130)
-    }
-}
+//     var body: some View {
+//         Circle()
+//             .trim(from: 0, to: CGFloat(progress))
+//             .stroke(new_yellow, style: StrokeStyle(lineWidth: 5, lineCap: .round))
+//             .rotationEffect(.degrees(-90))
+//             .frame(width: 130, height: 130)
+//     }
+// }
 
 extension CGSize {
     func convert(coordinate: CLLocationCoordinate2D, in region: MKCoordinateRegion) -> CGPoint {

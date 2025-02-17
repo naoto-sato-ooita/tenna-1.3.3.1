@@ -9,6 +9,12 @@ FileLinkView
 PreviewViewModel
 
 prompt
+GroupChatViewにおいて、送信したTextにURLが含まれる場合に,そのURLのプレビューを併せて提供する機能を追加したいです
+プレビューの作成にはPreviewViewModelおよびFileLinkViewを必要に応じて使ってください
+
+
+
+
 今から以下の手順でgroup（野外音楽フェス名を示す）へAnnotationデータ（フェス会場内のステージの座標）を登録します
 まずはデータを集めましょう
 アメリカのCochella　music　Festivalから着手しましょう、会場のステージごとの座標データを取得して、

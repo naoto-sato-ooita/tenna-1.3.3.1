@@ -202,59 +202,69 @@ struct MapView: View {
                         if isEditFlow {
                             
                             if !isEditOK {
-                                
-                                Button {
-                                    isEditOK = true
-                                } label: {
-                                    CommonButton(icon: "pencil.line")
+                                ZStack{
+                                    Capsule()
+                                    .foregroundStyle(White)
+                                    .frame(width:50,height:40)
+                                        
+                                    Button {
+                                        isEditOK = true
+                                    } label: {
+                                        CommonButton(icon: "pencil.line")
+                                    }
                                 }
-                                
                             } else {
                                 
-                                HStack(spacing: 10){
-                                    Spacer()
-                                    Button {
-                                        isEditOK.toggle()
-                                        isEditFlow = false
-                                    } label: {
-                                        CommonButton(icon: "chevron.down")
-                                    }
+                                ZStack{
+                                    Capsule()
+                                    .foregroundStyle(White)
+                                    .frame(width:140,height:40)
                                     
-                                    Button {
-                                        selectedAnnotations.removeAll()
-                                        routes.removeAll()
-                                        Task{
-                                            if let userId = Auth.auth().currentUser?.uid {
-                                                try await flowLineViewModel.deleteFlowLine(userId: userId)
-                                            }
+                                    HStack(spacing: 10){
+                                        Spacer()
+                                        Button {
+                                            isEditOK.toggle()
+                                            isEditFlow = false
+                                        } label: {
+                                            CommonButton(icon: "chevron.down")
                                         }
-                                        isEditOK.toggle()
-                                        isEditFlow = false
-                                    } label: {
-                                        CommonButton(icon: "trash")
-                                            .foregroundStyle(.red)
-                                    }
-                                    
-                                    
-                                    Button {
-                                        isEditOK.toggle()
-                                        isEditFlow = false
-                                        Task {
-                                            if let userId = Auth.auth().currentUser?.uid {
-                                                try? await flowLineViewModel.saveFlowLine(
-                                                    userId: userId,
-                                                    orderedAnnotations: selectedAnnotations.isEmpty ? flowLineViewModel.annotations : selectedAnnotations
-                                                )
-                                                // Add this to refresh the displayed orders
-                                                await flowLineViewModel.loadFlowLine(userId: userId)
-                                                showSaveAlert = true
+                                        
+                                        Button {
+                                            selectedAnnotations.removeAll()
+                                            routes.removeAll()
+                                            Task{
+                                                if let userId = Auth.auth().currentUser?.uid {
+                                                    try await flowLineViewModel.deleteFlowLine(userId: userId)
+                                                }
                                             }
+                                            isEditOK.toggle()
+                                            isEditFlow = false
+                                        } label: {
+                                            CommonButton(icon: "trash")
+                                                .foregroundStyle(.red)
                                         }
-                                    } label: {
-                                        CommonButton(icon: "square.and.arrow.down")
+                                        
+                                        
+                                        Button {
+                                            isEditOK.toggle()
+                                            isEditFlow = false
+                                            Task {
+                                                if let userId = Auth.auth().currentUser?.uid {
+                                                    try? await flowLineViewModel.saveFlowLine(
+                                                        userId: userId,
+                                                        orderedAnnotations: selectedAnnotations.isEmpty ? flowLineViewModel.annotations : selectedAnnotations
+                                                    )
+                                                    // Add this to refresh the displayed orders
+                                                    await flowLineViewModel.loadFlowLine(userId: userId)
+                                                    showSaveAlert = true
+                                                }
+                                            }
+                                        } label: {
+                                            CommonButton(icon: "square.and.arrow.down")
+                                        }
+                                        
+                                        
                                     }
-                                    
-                                    
                                 }
                             }
                         }

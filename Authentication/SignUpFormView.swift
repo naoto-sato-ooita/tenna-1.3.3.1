@@ -39,14 +39,14 @@ struct SignUpFormView: View {
                     
                     InputView(text: $password,
                               title: "Password",
-                              placeholeder: "min8,max20",
+                              placeholeder: "between 8 and 20 characters",
                               isSecureField: true)
                     
                     
                     ZStack(alignment: .trailing){
                         InputView(text: $confirmPassword,
                                   title: "Confirm",
-                                  placeholeder: "min8,max20", isSecureField: true)
+                                  placeholeder: "between 8 and 20 characters", isSecureField: true)
                         
                         if !password.isEmpty && !confirmPassword.isEmpty {
                             if password == confirmPassword {

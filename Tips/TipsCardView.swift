@@ -28,7 +28,7 @@ struct TipsCardView: View {
     @Binding var isShow: Bool
     
     // Add state variable to track active sheet
-    @State private var activeSheet: ActiveSheet?
+    //@State private var activeSheet: ActiveSheet?
     
     let tips: Tips
     
@@ -50,21 +50,20 @@ struct TipsCardView: View {
     var body: some View {
         NavigationStack{
             HStack(spacing: 10) {
-                //Image
                 
-                if let imagePath = tips.imagePath {
-                    AsyncImage(url: URL(string: imagePath)) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100)
-                            .onTapGesture {
-                                selectedImage = URL(string: imagePath)
-                                    //showImageViewer = true
-                                activeSheet = .imageViewer
-                            }
-                            .cornerRadius(12)
-                    } placeholder: {
+                Button{
+                    selectedImage = URL(string: imagePath)
+                    showImageViewer = true
+                } label:{
+                    if let imagePath = tips.imagePath {
+                        AsyncImage(url: URL(string: imagePath)) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100)
+                                .cornerRadius(12)
+                        } placeholder: {
+                        }
                     }
                 }
                 
@@ -85,15 +84,12 @@ struct TipsCardView: View {
                         Text(String(format: "%.0f min", distance / 60))
                             .font(.subheadline)
                             .foregroundStyle(.gray)
-                        
-                        
                     }
                 }
                 Spacer()
                 Button {
                     selectedUserId = tips.creatorId
-                    //showUserDetail = true
-                    activeSheet = .userDetail
+                    showUserDetail = true
                 } label: {
                     if let creator = creator {
                         if let urlString = creator.pathUrl, let url = URL(string: urlString) {
@@ -154,26 +150,16 @@ struct TipsCardView: View {
                 }
             }
             
-//            .sheet(isPresented: $showUserDetail) {
-//                if let userId = selectedUserId {
-//                    DetailView(selectUid: .constant(userId), showDetail: $showUserDetail)
-//                }
-//            }
-//            .sheet(isPresented: $showImageViewer) {
-//                ImageView(selectedImage: $selectedImage, showImageViewer: $showImageViewer)
-//                    .navigationBarBackButtonHidden(true)
-//            }
-            .sheet(item: $activeSheet) { sheet in
-                switch sheet {
-                case .userDetail:
-                    if let userId = selectedUserId {
-                        DetailView(selectUid: .constant(userId), showDetail: $showUserDetail)
-                    }
-                case .imageViewer:
-                    ImageView(selectedImage: $selectedImage, showImageViewer: $showImageViewer)
-                        .navigationBarBackButtonHidden(true)
-                }
-            }
+           .sheet(isPresented: $showUserDetail) {
+               if let userId = selectedUserId {
+                   DetailView(selectUid: .constant(userId), showDetail: $showUserDetail)
+               }
+           }
+           .sheet(isPresented: $showImageViewer) {
+               ImageView(selectedImage: $selectedImage, showImageViewer: $showImageViewer)
+                   .navigationBarBackButtonHidden(true)
+           }
+            
             
             .alert("Delete", isPresented: $showDeleteAlert) {
                 Button("Delete", role: .destructive) {
@@ -229,16 +215,5 @@ struct TipsCardView: View {
             longitude: locationManager.userLocation.longitude
         )
         distance = tipsLocation.distance(from: userLocation)
-    }
-}
-enum ActiveSheet: Identifiable {
-    case userDetail
-    case imageViewer
-    
-    var id: Int {
-        switch self {
-        case .userDetail: return 0
-        case .imageViewer: return 1
-        }
     }
 }

@@ -12,6 +12,8 @@ struct ForthTipView: View {
     @Binding var showTip: Bool
     let onAgree: () -> Void
     @Binding var selection : Int
+    let back = AngularGradient(gradient: Gradient(colors: [.black,White2,.black,.black,White2,.black,.black])
+                               ,center: .center, angle: .degrees(-45))
     
     var body: some View {
         ZStack{
@@ -33,81 +35,71 @@ struct ForthTipView: View {
                     
                     VStack(alignment: .leading,spacing: 20){
                         
-                        HStack{
+                        HStack(spacing:10){
+                            Circle()
+                                .scaledToFill()
+                                .frame(width: 90, height: 90)
+                                .foregroundStyle(back)
+                            
+                            VStack(spacing:10){
+                                Text("Scratch")
+                                    .font(.footnote)
+                                    .fontWeight(.bold)
+
+                                Text("Search Tips")
+                                    .font(.footnote)
+                            }
+                            .padding()
+                        }
+
+                        HStack(spacing:10){
                             ZStack{
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 2)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .foregroundStyle(White)
-                                            .opacity(1)
-                                    )
-                                    .frame(width: 50, height: 50)
-                                
-                                Image(systemName: "line.horizontal.3")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(.black)
+                                    Circle()
+                                        .scaledToFill()
+                                        .frame(width: 60, height: 60)
+                                        .foregroundStyle(White)
+                                    
+                                    Circle()
+                                        .scaledToFill()
+                                        .frame(width: 58, height: 58)
+                                        .foregroundStyle(new_yellow)
+                                    
+                                    Image(systemName: "line.horizontal.3")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                        .foregroundStyle(.black)
+                                    
                             }
                             
-                            VStack{
+                             VStack(spacing:10){
+                                Text("Push")
+                                    .font(.footnote)
+                                    .fontWeight(.bold)
+
                                 Text("Show Menu")
-                                Text("-> Check Topic")
-                            }
+                                    .font(.footnote)
+
+                                HStack(spacing:10){
+                                    Image(systemName: "gear")
+                                    Text("Add your photo")
+                                }
                                 .font(.footnote)
-                                .padding()
-                        }
-                        
-                        HStack{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 2)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .foregroundStyle(.white)
-                                    )
-                                    .frame(width: 50, height: 100)
-                                
-                                Image(systemName: "flame")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundStyle(.black)
-                            }
-                            
-                            
-                            Text("Share Tips")
+                                .fontWeight(.semibold)
+                                 
+                                HStack(spacing:10){
+                                    Image(systemName: "map")
+                                    Text("Edit the route of your fest.")
+                                }
                                 .font(.footnote)
-                                .padding()
-                        }
-                        
-                        HStack{
-                            ZStack{
-                                Circle()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .foregroundStyle(.white)
-                                
-                                
-                                Image(systemName: "arrow.triangle.2.circlepath.circle")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 50,height: 50)
-                                    .foregroundStyle(.black)
-                                    .fontWeight(.ultraLight)
+                                .fontWeight(.semibold)
+                                 
                             }
-                            
-                            
-                            Text("Search Tips")
-                                .font(.footnote)
-                                .padding()
+                            .padding()
                         }
                         
                     }
-                    
-                    
-                    
+
 
                 }
                 Spacer()

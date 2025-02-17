@@ -7,3 +7,10 @@ ForthTipsView
 new
 FileLinkView
 PreviewViewModel
+
+prompt
+今から以下の手順でgroup（野外音楽フェス名を示す）へAnnotationデータ（フェス会場内のステージの座標）を登録します
+まずはデータを集めましょう
+アメリカのCochella　music　Festivalから着手しましょう、会場のステージごとの座標データを取得して、
+以下の関数へ反映してください
+

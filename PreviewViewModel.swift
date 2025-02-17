@@ -1,6 +1,7 @@
 import SwiftUI
 import LinkPresentation
 import UniformTypeIdentifiers
+import UIKit
 
 final class PreviewViewModel: ObservableObject {
     
@@ -13,6 +14,15 @@ final class PreviewViewModel: ObservableObject {
     init(_ url: String) {
         self.previewURL = URL(string: url)
         fetchMetadata()
+    }
+    
+    func detectLinks(_ str: String) -> [NSTextCheckingResult] {
+        let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        if let d = detector {
+            return d.matches(in: str, range: NSMakeRange(0, str.characters.count))
+        } else {
+            return []
+        }
     }
     
     private func fetchMetadata() {

@@ -1,18 +1,14 @@
 changes
-SignUpView
-MapView
-TipCardView
-ForthTipsView
+-> ForthTipsView
 
 new
-FileLinkView
-PreviewViewModel
 
 prompt
-GroupChatViewにおいて、送信したTextにURLが含まれる場合に,そのURLのプレビューを併せて提供する機能を追加したいです
-プレビューの作成にはPreviewViewModelおよびFileLinkViewを必要に応じて使ってください
 
-
+MapボタンをMapViewの左上に持ってくる
+PlusViewのアイコンを大きくする
+RouteAnnotationのImageURLをIconに変える
+Stage,toilet ,food -> dish
 
 
 今から以下の手順でgroup（野外音楽フェス名を示す）へAnnotationデータ（フェス会場内のステージの座標）を登録します

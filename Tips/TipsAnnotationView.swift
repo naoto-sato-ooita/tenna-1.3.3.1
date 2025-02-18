@@ -23,22 +23,40 @@ struct TipsAnnotationView: View {
     var body: some View {
         VStack {
             Text(String(tip.content.prefix(10)))
-                .font(.headline)
+                .font(.caption)
                 .foregroundStyle(fontColor)
             
-            
-            Image(systemName: "flame.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: dynamicSize, height: dynamicSize)
-                .foregroundStyle(new_yellow)
-                .rotationEffect(.degrees(isSelected ? 10 : -10))
-                .animation(
-                    isSelected ?
-                    Animation.easeInOut(duration: 0.2).repeatForever(autoreverses: true) :
-                            .default,
-                    value: isSelected
-                )
+            ZStack {
+                Image(systemName: "flame.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: dynamicSize, height: dynamicSize)
+                    .foregroundStyle(new_yellow)
+                    .rotationEffect(.degrees(isSelected ? 10 : -10))
+                    .animation(
+                        isSelected ?
+                        Animation.easeInOut(duration: 0.2).repeatForever(autoreverses: true) :
+                                .default,
+                        value: isSelected
+                    )
+                
+                AsyncImage(url: URL(string: tip.imageUrl)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width:46, height:46)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(new_yellow, lineWidth: 2)
+                        )
+                } placeholder: {
+                    Circle()
+                        .fill(.gray)
+                        .frame(width: 40, height: 40)
+                }
+                
+            }
         }
         .onAppear {
             updateZoomLevel(likeCount: tip.likeCount)

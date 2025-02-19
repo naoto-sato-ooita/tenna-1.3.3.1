@@ -9,6 +9,8 @@ Create　photo TextField
 PuchaseView　プレミアムに月桂冠を配置
 スクリーン　　デカ文字　「Share your fun!」
 
+Seting戻り時にブランク
+
 今から以下の手順でgroup（野外音楽フェス名を示す）へAnnotationデータ（フェス会場内のステージの座標）を登録します
 まずはデータを集めましょう
 アメリカのCochella　music　Festivalから着手しましょう、会場のステージごとの座標データを取得して、

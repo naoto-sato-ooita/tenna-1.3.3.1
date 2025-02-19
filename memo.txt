@@ -5,6 +5,7 @@ PlusViewのアイコンを大きくする
 RouteAnnotationのImageURLをIconに変える
 Stage,toilet ,food -> dish
 ForthTipsViewでMap作成を促す
+Create　photo TextField
 
 今から以下の手順でgroup（野外音楽フェス名を示す）へAnnotationデータ（フェス会場内のステージの座標）を登録します
 まずはデータを集めましょう

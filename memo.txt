@@ -16,6 +16,9 @@ TipsDetailViewくらい
 子Viewで不要なnavigationStackを削除
 .UserDetailのような形が混在しているから？
 
+.animation(.spring(Spring(duration: 0.5, bounce: 0.3)), value: isMenu)
+
+
 Hello, I created an app to help you enjoy the upcoming COACHELLA even more.
 If you like, please try it and I will share my recommendations with everyone at the venue on the day.
 by Cochella fan

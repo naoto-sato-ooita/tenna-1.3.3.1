@@ -16,8 +16,22 @@ TipsDetailViewくらい
 子Viewで不要なnavigationStackを削除
 .UserDetailのような形が混在しているから？
 
+PlusView()
+.frame(maxWidth: .infinity, alignment: isMenu ? .trailing : .leading)
 .animation(.spring(Spring(duration: 0.5, bounce: 0.3)), value: isMenu)
 
+.toggle()
+systemImage"tri"
+        .rotationEffect(.degrees(rotation ? 0 : 720))
+        .animation(.easeIn, value: isMenu)
+.toggle()
+systemImage"map" 
+        .opacity(opacity ? 0.2 : 1)
+        .animation(.easeOut, value: isMap)
+
+AnnotationView()
+        .scaleEffect(isMap ? 2 : 1)
+        .animation(.spring(Spring(duration: 0.5, bounce: 0.3)), value: isMap)
 
 Hello, I created an app to help you enjoy the upcoming COACHELLA even more.
 If you like, please try it and I will share my recommendations with everyone at the venue on the day.

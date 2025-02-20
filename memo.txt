@@ -13,7 +13,7 @@ Seting戻り時にブランク
 >PurchaseやProfileは変えてないので
 それ以外の変化点、同じNavigation周りに原因
 TipsDetailViewくらい
-各Viewで不要なnavigationStackを削除
+子Viewで不要なnavigationStackを削除
 .UserDetailのような形が混在しているから？
 
 

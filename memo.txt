@@ -14,6 +14,7 @@ Seting戻り時にブランク
 それ以外の変化点、同じNavigation周りに原因
 TipsDetailViewくらい
 各Viewで不要なnavigationStackを削除
+.UserDetailのような形が混在しているから？
 
 
 今から以下の手順でgroup（野外音楽フェス名を示す）へAnnotationデータ（フェス会場内のステージの座標）を登録します

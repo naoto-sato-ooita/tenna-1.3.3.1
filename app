@@ -5,7 +5,7 @@ Always respond in Japanese.
 
 .cursorrules
 ■ このアプリケーションの概要
-「noize - ASMR for Work」という、ユーザー投稿型の音声ストリーミングのサービスです。
+「noimer - ASMR for Work」という、ユーザー投稿型の音声ストリーミングのサービスです。
 このアプリで扱う音声は人の言葉ではなく、聞いてて心地の良い
 ASMRと呼ばれる環境音になります
 
